@@ -59,6 +59,11 @@ IBM ESS is **often compared to NVIDIA SuperPOD storage**, as both solutions are 
 | **ESS 3500** | Hybrid (Flash + HDD for balanced performance & capacity) | AI/ML Operations, Data Analytics, Mixed Workloads, Predictive Analytics, Fraud Detection & Risk Management |
 | **ESS 5000** | HDD-Based (high-capacity storage, supports flash caching) | Big Data, Data Lakes, Large-Scale File Storage, Capacity-Driven Workloads |
 
+## IBM ESS 3500 Architecture  
+
+The **IBM Elastic Storage System (ESS) 3500** is an appliance that combines **x86 hardware, IBM FlashSystem storage, and IBM Storage Scale software** to deliver a high-performance, scalable **storage solution**. The appliance is built on **x86 architecture using AMD EPYC processors**, which handle storage management and processing tasks. The underlying storage is provided by **IBM FlashSystem**, ensuring high-speed access to data. On top of this hardware, **IBM Storage Scale (formerly GPFS)** is installed, enabling a powerful **parallel file system** that is optimized for AI, machine learning, and high-performance computing (HPC) workloads. This combination of compute and storage allows ESS 3500 to efficiently manage large-scale unstructured data, making it a key solution for AI-driven environments.  
+
+
 # NVIDIA SuperPOD vs. IBM ESS – Understanding the Differences  
 
 ## Summary  
