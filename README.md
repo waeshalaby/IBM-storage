@@ -107,6 +107,57 @@ To achieve a **similar architecture** to **NVIDIA DGX SuperPOD** while using **I
 ## **Final Takeaway**  
 IBM HCI is an **all-in-one hyperconverged infrastructure appliance** that combines **compute, storage, and networking** with **bare-metal OpenShift and Ceph-based storage (IBM Storage Fusion).**  
 
+
+## 🔹 IBM Storage Fusion HCI Server Models  
+
+### **1️⃣ Compute-Only Servers (No Storage)**
+These servers **do not have local storage (NVMe drives)** and are used **only to scale CPU & RAM**.  
+They rely on shared storage from **Compute-Storage Servers (C01, C05) or external storage (e.g., IBM ESS).**
+
+| **Model** | **CPU** | **Memory** | **Storage** | **IBM Storage Fusion** | **Use Case** |
+|-----------|--------|------------|------------|------------------------|--------------|
+| **C00**   | 2× AMD EPYC 7302 (32 cores) | 256 GB RAM | ❌ No Storage | ❌ No | Compute scaling without storage |
+| **C04**   | 2× AMD EPYC 7543 (64 cores) | 1,024–2,048 GB RAM | ❌ No Storage | ❌ No | Compute scaling with high RAM |
+
 ---
+
+### **2️⃣ Compute-Storage Servers (Includes Storage & IBM Storage Fusion)**
+These **include NVMe storage and IBM Storage Fusion (Ceph-based storage)**.  
+They act as both **compute and storage nodes**, forming the backbone of IBM HCI.
+
+| **Model** | **CPU** | **Memory** | **Storage** | **IBM Storage Fusion** | **Use Case** |
+|-----------|--------|------------|------------|------------------------|--------------|
+| **C01**   | 2× AMD EPYC 7302 (32 cores) | 256 GB RAM | ✅ 2-10 NVMe Drives | ✅ Yes | General-purpose compute & storage |
+| **C05**   | 2× AMD EPYC 7543 (64 cores) | 1,024–2,048 GB RAM | ✅ 2-10 NVMe Drives | ✅ Yes | High-performance compute & storage |
+
+---
+
+### **3️⃣ GPU-Accelerated Servers (For AI/ML Workloads)**
+These servers come with **NVIDIA GPUs for AI/ML, HPC, and deep learning workloads**.
+
+| **Model** | **CPU** | **Memory** | **GPUs** | **Storage** | **Use Case** |
+|-----------|--------|------------|--------|------------|--------------|
+| **G02**   | 2× Intel Gold 6418H (48 cores) | 512 GB RAM | ✅ 3× NVIDIA A100 80GB | - | AI/ML Training, Deep Learning |
+| **G03**   | 2× AMD EPYC 9254 (48 cores) | 768 GB RAM | ✅ 1-8 NVIDIA L40S GPUs | - | High-performance AI inference |
+
+---
+
+## 🔹 Key Takeaways  
+✔ **Compute-Only Servers (C00, C04) →**  
+   - **Do NOT come with IBM Storage Fusion** because they lack local storage.  
+   - **They only scale CPU and RAM** for compute-heavy workloads.  
+   - **They rely on shared storage** from Compute-Storage Servers (C01, C05) or IBM ESS.  
+
+✔ **Compute-Storage Servers (C01, C05) →**  
+   - **Include NVMe storage** and **IBM Storage Fusion** (Ceph-based).  
+   - **Act as both compute and storage nodes**, forming the backbone of IBM HCI.  
+   - **At least 6 Compute-Storage Servers are required to start an IBM HCI deployment.**  
+
+✔ **GPU-Accelerated Servers (G02, G03) →**  
+   - **Optimized for AI/ML workloads** with **NVIDIA A100 or L40S GPUs**.  
+   - **Do not provide storage** but work alongside Compute-Storage nodes.  
+
+✔ **IBM Storage Fusion HCI does NOT use VMware** – it runs OpenShift as a **bare-metal deployment**.  
+
 
 
