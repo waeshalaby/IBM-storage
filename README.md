@@ -85,5 +85,28 @@ To achieve a **similar architecture** to **NVIDIA DGX SuperPOD** while using **I
 
 - **NVIDIA DGX SuperPOD** = All-in-one AI platform (**Compute + GPUs + Storage + Networking + K8s/OCP**).  
 - **IBM ESS** = **Storage-only appliance** (needs an external K8s/OCP cluster with GPUs for AI workloads).  
-- **To create a SuperPOD-like environment with IBM ESS**, you must **deploy OpenShift/K8s on separate GPU-powered hardware** and integrate **ESS as external AI storage**.  
+- **To create a SuperPOD-like environment with IBM ESS**, you must **deploy OpenShift/K8s on separate GPU-powered hardware** and integrate **ESS as external AI storage**.
+
+# IBM Storage Fusion HCI - Overview  
+
+## Summary  
+
+**IBM Storage Fusion HCI** is an **appliance that integrates compute, storage, and networking** into a **single system with Red Hat OpenShift (OCP) deployed on bare metal.**  
+
+### **Key Components**  
+
+- **Compute** → Based on **x86 hardware** (AMD/Intel CPUs).  
+- **Operating System & Orchestration** → Comes with **Red Hat OpenShift pre-installed as a bare-metal deployment** (no hypervisor like VMware).  
+- **Storage** → Uses **IBM Storage Fusion Data Foundation** (which is based on **Ceph**) to provide:  
+  - **Block storage** (Ceph RBD)  
+  - **File storage** (CephFS)  
+  - **Object storage** (S3-compatible storage)  
+- **Virtualization Support** → Can run **VMs inside OpenShift** using **OpenShift Virtualization (KubeVirt)**.  
+- **Best for** → **Cloud-native applications, AI/ML, containerized workloads, and hybrid cloud deployments.**  
+
+## **Final Takeaway**  
+IBM HCI is an **all-in-one hyperconverged infrastructure appliance** that combines **compute, storage, and networking** with **bare-metal OpenShift and Ceph-based storage (IBM Storage Fusion).**  
+
+---
+
 
